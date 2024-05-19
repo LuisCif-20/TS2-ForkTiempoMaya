@@ -112,7 +112,7 @@ h6 {
     background: url(../img/fondo.png) top center;
     background-size: cover;
     position: relative;
-    z-index: -2;
+    z-index: 0;
 }
 
 video {
