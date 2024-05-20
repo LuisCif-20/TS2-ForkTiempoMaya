@@ -32,11 +32,11 @@ $cholquij = $nahual . " " . strval($energia);
 
     <?php include "NavBar.php" ?>
     <div>
-        <section id="inicio">
+        <section id="inicio" class="flex">
             <video src="./img/background.mp4" autoplay="true" muted="true" loop="true"></video>
             <div id="inicioContainer" class="inicio-container">
 
-                <div id='formulario'>
+                <div id='formulario' style="margin-top: 150px;">
                     <h1>Calculadora</h1>
                     <form action="#" method="GET">
                         <div class="mb-1">
@@ -45,6 +45,13 @@ $cholquij = $nahual . " " . strval($energia);
                         </div>
                         <button type="submit" class="btn btn-get-started"><i class="far fa-clock"></i> Calcular</button>
                     </form>
+
+                    <?php
+                    if(isset($haab)){
+                        $palabraHaab = preg_replace('/[0-9\' ]+/', '', $haab);                    
+                        $palabraCholquij = preg_replace('/[0-9\' ]+/', '', $cholquij);
+                    }
+                    ?>
 
                     <div id="tabla">
                         <table class="table table-dark table-striped">
@@ -58,15 +65,29 @@ $cholquij = $nahual . " " . strval($energia);
                             <tbody>
                                 <tr>
                                     <th scope="row">Calendario Haab</th>
-                                    <td><?php echo isset($haab) ? $haab : ''; ?></td>
+                                    <td class="row">
+                                        <strong class="col-3">
+                                            <u><?php echo isset($haab) ? $haab : ''; ?></u>
+                                        </strong>
+                                        <img width="100" height="100" class="rounded ml-5 col-3" style="background-color: #fcd5ce;" src="./img/uinales/<?php echo isset($palabraHaab) ? $palabraHaab : ''; ?>.png">
+                                    </td> 
                                 </tr>
                                 <tr>
                                     <th scope="row">Calendario Cholquij</th>
-                                    <td><?php echo isset($cholquij) ? $cholquij : ''; ?></td>
+                                    <td class="row">
+                                        <strong class="col-3">
+                                            <u><?php echo isset($cholquij) ? $cholquij : ''; ?></u>
+                                        </strong>    
+                                        <img width="100" height="100" class="rounded ml-5 col-3" style="background-color: #fcd5ce;" src="./img/nahuales/<?php echo isset($palabraCholquij) ? $palabraCholquij : ''; ?>.png">
+                                    </td>
                                 </tr>
                                 <tr>
                                     <th scope="row">Cuenta Larga</th>
-                                    <td><?php echo isset($cuenta_larga) ? $cuenta_larga : ''; ?></td>
+                                    <td class="row">
+                                        <strong class="col-3">
+                                            <u><?php echo isset($cuenta_larga) ? $cuenta_larga : ''; ?></u>
+                                        </strong> 
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>

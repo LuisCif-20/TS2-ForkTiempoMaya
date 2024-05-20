@@ -106,7 +106,8 @@ $energiasNav = $conn->query("SELECT nombre FROM tiempo_maya.energia order by id;
             </li>
             
             <li class="nav-item"><a class="nav-link" href="../calculadora.php" style="color: white;font-size: 17px;">Calculadora</a></li>
-           
+            <li class="nav-item"><a class="nav-link" href="../conversorCuentaLarga.php" style="color: white;font-size: 17px;">Conversor</a></li>
+
           </ul>
         </div>
       </div>
