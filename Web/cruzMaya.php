@@ -43,7 +43,7 @@ $img_nahual = substr($img_nahual, 1);
             <div id="fondoHora"></div>
             <script src="./js/cambiarFondo.js"></script>
             <div id="inicioContainer" class="inicio-container">
-                <div id="formulario" style="margin-top: 150px;">
+                <div id="formulario" style="margin-top: 150px; margin-bottom: 50px">
                     <h1>Conoce Tu Cruz Maya</h1>
                     <form action="#" method="GET" class="row mt-3">
                         <div class="mb-1 col-8 offset-2">
