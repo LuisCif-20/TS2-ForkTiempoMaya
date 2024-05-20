@@ -26,14 +26,15 @@ $informacion = $conn->query("SELECT htmlCodigo FROM tiempo_maya.pagina WHERE nom
     <?php include "../blocks/bloquesCss.html" ?>
     <link rel="stylesheet" href="../css/estilo.css?v=<?php echo (rand()); ?>" />
     <link rel="stylesheet" href="../css/paginaModelo.css?v=<?php echo (rand()); ?>" />
-
+    <link rel="stylesheet" href="../css/fondo-hora.css">
 
 </head>
 <?php include "../NavBar2.php" ?>
 
 <body>
     <section id="inicio">
-        <video src="../img/background.mp4" autoplay="true" muted="true" loop="true"></video>
+        <div id="fondoHora"></div>
+        <script src="../js/cambiarFondo.js"></script>
         <div id="inicioContainer" class="inicio-container">
             <?php echo "<h1>" . $tabla . " </h1>";
             ?>
@@ -43,17 +44,17 @@ $informacion = $conn->query("SELECT htmlCodigo FROM tiempo_maya.pagina WHERE nom
     </section>
     <br><br><br><br>
     <section id=" information">
-            <div class="container">
-                <div class="row about-container">
-                    <div class="section-header">
-                        <h3 class="section-title">INFORMACION</h3>
-                    </div>
-                    <?php foreach ($informacion as $info) {
-                        echo $info['htmlCodigo'];
-                    } ?>
+        <div class="container">
+            <div class="row about-container">
+                <div class="section-header">
+                    <h3 class="section-title">INFORMACION</h3>
                 </div>
-
+                <?php foreach ($informacion as $info) {
+                    echo $info['htmlCodigo'];
+                } ?>
             </div>
+
+        </div>
     </section>
     <hr>
 

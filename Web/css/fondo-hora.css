@@ -1,0 +1,32 @@
+#fondoHora {
+    width: 100vw;
+    height: 100vh;
+    z-index: 0;
+    position: relative;
+    transition: background-image 2s ease-in-out;
+}
+
+.dia {
+    background-image: url('../img/fondos-hora/Dia.png');
+    background-size: cover;
+    background-position: center;
+}
+
+.tarde {
+    background-image: url('../img/fondos-hora/Atardecer.png');
+    background-size: cover;
+    background-position: center;
+}
+
+.alba {
+    background-image: url('../img/fondos-hora/Amanecer.png');
+    background-size: cover;
+    background-position: center;
+}
+
+.noche {
+    background-image: url('../img/fondos-hora/Noche.png');
+    background-size: cover;
+    background-position: center;
+}
+

@@ -1,4 +1,5 @@
 <?php
+
 $conn = include "conexion/conexion.php";
 
 if (isset($_GET['fecha'])) {
@@ -8,11 +9,16 @@ if (isset($_GET['fecha'])) {
   $fecha_consultar = date("Y-m-d");
 }
 
-$nahual = include 'backend/buscar/conseguir_nahual_nombre.php';
+$img_nahual = include 'backend/buscar/conseguir_imagen_nahual.php';
+$img_nahual = substr($img_nahual, 1);
 $energia = include 'backend/buscar/conseguir_energia_numero.php';
 $haab = include 'backend/buscar/conseguir_uinal_nombre.php';
+$img_uinal = include 'backend/buscar/conseguir_imagen_uinal.php';
+$img_uinal = substr($img_uinal, 1);
 $cuenta_larga = include 'backend/buscar/conseguir_fecha_cuenta_larga.php';
-$cholquij = $nahual . " " . strval($energia);
+$desc = include 'backend/buscar/conseguir_des_nahual.php';
+$nahual = include 'backend/buscar/conseguir_nahual_nombre.php';
+$cholquij = $nahual . " " . strval($energia);                  
 
 ?>
 <!DOCTYPE html>
@@ -26,22 +32,35 @@ $cholquij = $nahual . " " . strval($energia);
   <link rel="stylesheet" href="css/estilo.css?v=<?php echo (rand()); ?>" />
   <link rel="stylesheet" href="css/estiloAdmin.css?v=<?php echo (rand()); ?>" />
   <link rel="stylesheet" href="css/index.css?v=<?php echo (rand()); ?>" />
+  <link rel="stylesheet" href="css/fondo-hora.css">
 </head>
 
 <body>
-
   <?php include "NavBar.php" ?>
   <div>
     <section id="inicio">
-      <video src="./img/background.mp4" autoplay="true" muted="true" loop="true"></video>
+      <div id="fondoHora"></div>
+      <script src="./js/cambiarFondo.js"></script>
+      <!-- <video src="./img/background.mp4" autoplay="true" muted="true" loop="true"></video> -->
       <div id="inicioContainer" class="inicio-container">
         <br><br><br><br><br>
         <h1><br><br>Tiempo Maya</h1><br><br>
-        <img alt="" src="./img/logonew2.png" width=185" height="160">
-        <h5 style="color: whitesmoke;font-size: 18px;">Calendario Haab : <?php echo isset($haab) ? $haab : ''; ?></h5>
-        <h5 style="color: whitesmoke;font-size: 18px;">Calendario Cholquij : <?php echo isset($cholquij) ? $cholquij : ''; ?></h5>
-        <h5 style="color: whitesmoke;font-size: 18px;">Cuenta Larga : <?php echo isset($cuenta_larga) ? $cuenta_larga : ''; ?></h5>
-        <label style="color: whitesmoke;"><?php echo isset($fecha_consultar) ? $fecha_consultar : ''; ?></label>
+        <img alt="" src="./img/logonew2.png" width=185 height="160">
+        <div class="row mt-3" style="width: 1200px">
+          <div class="col-3">
+            <h5 style="color: whitesmoke;font-size: 18px;">Calendario Haab : <?php echo isset($haab) ? $haab : ''; ?></h5>
+            <img width="100" height="100" class="rounded" src="<?php echo isset($img_uinal) ? $img_uinal : ''; ?>">
+          </div>
+          <div class="col-6">
+            <h5 style="color: whitesmoke;font-size: 18px;"><?php echo isset($desc) ? $desc : ''; ?></h5>
+          </div>
+          <div class="col-3 mb-5">
+            <h5 style="color: whitesmoke;font-size: 18px;">Calendario Cholquij : <?php echo isset($cholquij) ? $cholquij : ''; ?></h5>
+            <img width="100" height="100" class="rounded" src="<?php echo isset($img_nahual) ? $img_nahual : ''; ?>">
+          </div>
+          <h5 class="col-6" style="color: whitesmoke;font-size: 18px;">Cuenta Larga : <?php echo isset($cuenta_larga) ? $cuenta_larga : ''; ?></h5>
+          <h5 class="col-6" style="color: whitesmoke;font-size: 18px;">Fecha Gregoriana: <?php echo isset($fecha_consultar) ? $fecha_consultar : ''; ?></h5>
+        </div>
       </div>
     </section>
     <br><br><br><br>

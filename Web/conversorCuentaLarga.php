@@ -1,5 +1,6 @@
 <?php session_start(); ?>
 <?php
+
 include './codigo_funcionalidades/conversor.php';
 
 if (isset($_GET['fecha_gregoriana'])) {
@@ -72,6 +73,7 @@ if (isset($_GET['submit_cg_to_cl'])) {
     <?php include "blocks/bloquesCss.html" ?>
     <link rel="stylesheet" href="css/estilo.css?v=<?php echo (rand()); ?>" />
     <link rel="stylesheet" href="css/calculadora.css?v=<?php echo (rand()); ?>" />
+    <link rel="stylesheet" href="css/fondo-hora.css">
 </head>
 
 <body>
@@ -79,47 +81,57 @@ if (isset($_GET['submit_cg_to_cl'])) {
     <?php include "./NavBar.php" ?>
     <div>
         <section id="inicio" class="flex">
-            <video src="./img/background.mp4" autoplay="true" muted="true" loop="true"></video>
+            <div id="fondoHora"></div>
+            <script src="./js/cambiarFondo.js"></script>
             <div id="inicioContainer" class="inicio-container">
-                <div id="formulario" class="mt-5">
+                <div id="formulario" style="margin-top: 70px;">
                     <h1>Juega con el Conversor</h1>
                     <form action="#" method="GET" class="flex row justify-content-center">
                         <div class="col-2">
                             <label for="baktun" class="form-label">Baktun</label>
-                            <input type="number" min="0" name="baktun" id="baktun" class="form-control" required value="<?php echo isset($res_baktun) ? $res_baktun : ''; ?>">
+                            <input type="number" min="0" name="baktun" id="baktun" class="form-control" required
+                                value="<?php echo isset($res_baktun) ? $res_baktun : ''; ?>">
                         </div>
                         <div class="col-2">
                             <label for="katun" class="form-label">Katun</label>
-                            <input type="number" min="0" name="katun" id="katun" class="form-control" required value="<?php echo isset($res_katun) ? $res_katun : ''; ?>">
+                            <input type="number" min="0" name="katun" id="katun" class="form-control" required
+                                value="<?php echo isset($res_katun) ? $res_katun : ''; ?>">
                         </div>
                         <div class="col-2">
                             <label for="tun" class="form-label">Tun</label>
-                            <input type="number" min="0" name="tun" id="tun" class="form-control" required value="<?php echo isset($res_tun) ? $res_tun : ''; ?>">
+                            <input type="number" min="0" name="tun" id="tun" class="form-control" required
+                                value="<?php echo isset($res_tun) ? $res_tun : ''; ?>">
                         </div>
                         <div class="col-2">
                             <label for="uinal" class="form-label">Uinal</label>
-                            <input type="number" min="0" name="uinal" id="uinal" class="form-control" required value="<?php echo isset($res_uinal) ? $res_uinal : ''; ?>">
+                            <input type="number" min="0" name="uinal" id="uinal" class="form-control" required
+                                value="<?php echo isset($res_uinal) ? $res_uinal : ''; ?>">
                         </div>
                         <div class="col-2">
                             <label for="kin" class="form-label">Kin</label>
-                            <input type="number" min="0" name="kin" id="kin" class="form-control" required value="<?php echo isset($res_kin) ? $res_kin : ''; ?>">
+                            <input type="number" min="0" name="kin" id="kin" class="form-control" required
+                                value="<?php echo isset($res_kin) ? $res_kin : ''; ?>">
                         </div>
                         <div class="col-12 justify-content-center mt-3">
-                            <button type="submit" name="submit_cl_to_cg" class="btn btn-get-started">Convertir Cuenta Larga a Gregoriano</button>
+                            <button type="submit" name="submit_cl_to_cg" class="btn btn-get-started">Convertir Cuenta
+                                Larga a Gregoriano</button>
                         </div>
                     </form>
                     <form action="#" method="GET" class="flex row justify-content-center mt-3">
                         <div class="col-5">
                             <label for="baktun" class="form-label">Fecha Gregoriana</label>
-                            <input type="date" name="fecha_gregoriana" id="fecha_gregoriana" class="form-control" required value="<?php echo isset($resultado_cl_to_cg) ? $resultado_cl_to_cg : ''; ?>">
+                            <input type="date" name="fecha_gregoriana" id="fecha_gregoriana" class="form-control"
+                                required value="<?php echo isset($resultado_cl_to_cg) ? $resultado_cl_to_cg : ''; ?>">
                         </div>
                         <div class="col-12 justify-content-center mt-3">
-                            <button type="submit" name="submit_cg_to_cl" class="btn btn-get-started">Convertir Gregoriano a Cuenta Larga</button>
+                            <button type="submit" name="submit_cg_to_cl" class="btn btn-get-started">Convertir
+                                Gregoriano a Cuenta Larga</button>
                         </div>
                     </form>
                 </div>
             </div>
         </section>
+        <br><br>
     </div>
 
     <?php include "blocks/bloquesJs1.html" ?>
